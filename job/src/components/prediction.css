@@ -1,0 +1,63 @@
+.prediction-container {
+    background-color: black; /* Set background color */
+    background-image: url(random-walk-white.png); /* Set background image */
+    background-size: 200px; /* Adjust image size */
+    background-position: center;
+    background-repeat:no-repeat;
+    padding: 30px;
+    /* Add more styles as needed */
+  }
+
+  .fullscreen-image {
+    position: fixed;
+    top: -177px;
+    left:280px;
+    width: 700px;
+    height: 1000px;
+    object-fit:contain; /* Maintain aspect ratio */
+    z-index: 9999; /* Ensure image is on top of other elements */
+  }
+  .filter-button {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 20px; /* Adjust the border-radius to create a curved shape */
+    font-size: 16px;
+    cursor: pointer;
+    position: relative; /* Ensure that the pseudo-element is positioned relative to the button */
+    overflow: hidden;
+    font-family:Arial, Helvetica, sans-serif;
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Create the shine effect using a pseudo-element */
+.filter-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 400%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    background-size: 200% 100%; /* Double the width of the background */
+    animation: shine 1.5s linear infinite; /* Apply the shine animation */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+    opacity: 0; /* Initially hidden */
+  }
+  
+  /* Show the shine effect when the button is hovered or focused */
+  .filter-button:hover::before,
+  .filter-button:focus::before {
+    opacity: 1;
+  }
+  
+  /* Shine animation */
+  @keyframes shine {
+    to {
+      background-position: 200% 0; /* Move the gradient to the right */
+    }
+  }
